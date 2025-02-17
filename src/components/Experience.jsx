@@ -1,90 +1,93 @@
+import jioLogo from "../assets/jio.png";
+import rigvedLogo from "../assets/Rigved-Logo.png";
 
-import jioPhoto from "../assets/jio.png";
+const experiences = [
+  {
+    company: "Rigved Technologies",
+    role: "SDE Intern",
+    logo: rigvedLogo,
+    details: [
+      "Collaborated with a team of developers to design and develop web applications for Reliance Foundation Hospital, creating features utilized by 600+ doctors, staff, and patients.",
+      "Integrated AI models and complex APIs to streamline hospital operations and improve patient care.",
+    ],
+    date: "Jan 2025 - Present",
+    link: "https://www.rigvedtech.com/",
+  },
+  {
+    company: "Globixo",
+    role: "SDE Intern",
+    logo: null,
+    details: [
+      "Led the comprehensive revamp of Globixo's website, implementing new features that increased user engagement by 20% and streamlining UI/UX design to resolve inconsistencies, resulting in a 15% decrease in bounce rates.",
+      "Developed data scraping solutions using Node.js and Chromium, extracting over 10,000 records monthly for market analysis.",
+      "Engineered an offline-compatible, cross-platform mobile application with React Native, accelerating development time by 40% compared to separate Android and iOS codebases.",
+    ],
+    date: "Sep 2024 - Dec 2024",
+    link: "https://www.globixo.com/",
+  },
+  {
+    company: "Jio Platforms Limited",
+    role: "SDE Intern",
+    logo: jioLogo,
+    details: [
+      "Engineered and optimized a speech recognition tool for faculty, enabling efficient recording of assignments and participant management within a 20-25 day timeline.",
+      "Improved customer service response times by 20% through the implementation of 10-15 client-specified UI improvements and features in a call analysis tool.",
+      "Architected a document annotation tool, enhancing data preparation efficiency by 30% for the analytics team.",
+    ],
+    date: "Jul 2024 - Aug 2024",
+    link: "https://www.jio.com/platforms/about-us/",
+  },
+];
 
 const Experience = () => {
   return (
-    <div className="h-1/3 py-16 px-24 flex flex-col items-center bg-gray-50">
+    <div
+      id="experience"
+      className="py-16 px-2 md:px-24 flex flex-col items-center bg-gray-50">
       <div className="bg-gray-200 text-gray-600 p-2 rounded-xl">
         <p className="text-sm">Experience</p>
       </div>
-      <p className="mt-8">
+      <p className="mt-8 text-center">
         Here is a quick summary of my most recent experiences:
       </p>
-      <div className="flex flex-wrap gap-16 justify-center mt-10">
-        <div className="experienceContainer w-11/12 grid grid-cols-[1fr_3fr_auto] gap-6 items-center bg-white p-8 rounded-lg shadow-md hover:shadow-xl">
-          <div className="flex justify-center px-10">
-            <div className="text-purple-600 font-bold text-3xl">Globixo</div>
-          </div>
-          <ul className="experienceInfo list-disc w-full">
-            <p className="text-lg font-medium">SDE Intern</p>
-            <li className="my-2">
-              Enhanced Globixo’s main website by developing and implementing new
-              features.
-            </li>
-            <li className="my-2">
-              Addressed UI/UX inconsistencies by aligning elements with current
-              design standards.
-            </li>
-            <li className="my-2">
-              Created data scraping solutions using Node.js and Chromium.
-            </li>
-            <li className="my-2">
-              Developed an offline-compatible, cross-platform mobile application
-              with React Native.
-            </li>
-            <li className="my-2">
-              Technologies: Next.js, React Native, Node.js, Tailwind CSS
-            </li>
-          </ul>
-          <div className="date text-sm text-right">
-            <p>Sep 2024 - Present</p>
-          </div>
-        </div>
-
-        <div className="experienceContainer w-11/12 grid grid-cols-[1fr_3fr_auto] gap-6 items-center bg-white p-8 rounded-lg shadow-md hover:shadow-xl">
-          <div className="flex justify-center px-10">
-            <img className="w-28" src={jioPhoto} alt="Jio Platforms Limited" />
-          </div>
-          <ul className="experienceInfo list-disc w-full">
-            <p className="text-lg font-medium">Final Year Project</p>
-            <li className="my-2">
-              Creating a healthcare application to automate up to 60% of
-              appointment scheduling and patient management tasks by
-              transcribing doctor-patient conversations into structured SOAP
-              notes and progress reports.
-            </li>
-          </ul>
-          <div className="date text-sm text-right">
-            <p>Aug 2024 - Present</p>
-          </div>
-        </div>
-
-        <div className="experienceContainer w-11/12 grid grid-cols-[1fr_3fr_auto] gap-6 items-center bg-white p-8 rounded-lg shadow-md hover:shadow-xl">
-          <div className="flex justify-center px-10">
-            <img className="w-28" src={jioPhoto} alt="Jio Platforms Limited" />
-          </div>
-          <ul className="experienceInfo list-disc w-full">
-            <p className="text-lg font-medium">SDE Intern</p>
-            <li className="my-2">
-              Speech Recognition Tool: Developed a tool enabling school faculty
-              to record student assignments, manage participants, and handle
-              secure authentication for faculty access.
-            </li>
-            <li className="my-2">
-              Call Analysis tool: Implemented 10-15 client-specified UI
-              improvements, achieving a 20% enhance- ment in customer service
-              response times.
-            </li>
-            <li className="my-2">
-              Developed a document annotation tool, allowing users to annotate,
-              edit, and save documents for train- ing data and analytical
-              purposes.
-            </li>
-          </ul>
-          <div className="date text-sm text-right">
-            <p>Jul 2024 - Aug 2024 </p>
-          </div>
-        </div>
+      <div className="flex flex-wrap gap-6 md:gap-16 justify-center mt-10">
+        {experiences.map((exp, index) => (
+          <a
+            key={index}
+            href={exp.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full md:w-11/12">
+            <div className="experienceContainer grid grid-cols-1 md:grid-cols-[1fr_3fr_auto] gap-4 md:gap-6 items-center bg-white p-6 lg:p-8 md:p-8 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all">
+              <div className="flex justify-center px-4 md:px-10">
+                {exp.logo ? (
+                  <img
+                    className="w-20 md:w-28"
+                    src={exp.logo}
+                    alt={exp.company}
+                  />
+                ) : (
+                  <div className="text-purple-600 font-bold text-xl md:text-3xl">
+                    {exp.company}
+                  </div>
+                )}
+              </div>
+              <ul className="experienceInfo list-disc w-full text-sm md:text-base">
+                <p className="text-lg font-medium text-center md:text-left">
+                  {exp.role}
+                </p>
+                {exp.details.map((detail, i) => (
+                  <li key={i} className="my-2">
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+              <div className="date text-sm text-right">
+                <p>{exp.date}</p>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   );

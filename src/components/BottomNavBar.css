@@ -1,0 +1,59 @@
+/* Group Container */
+.group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* Icon Transition */
+.icon {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Navbar Text Transition */
+.navbar-text {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover Effect: Hide Icon, Show Text */
+.group:hover .icon {
+  opacity: 0;
+}
+
+.group:hover .navbar-text {
+  opacity: 1;
+  transform: translateY(0); /* Slide up to original position */
+}
+
+/* Highlight Animation */
+.group::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00bcd4; /* Highlight color */
+  transition: width 0.3s ease-in-out;
+}
+
+.group:hover::after {
+  width: 100%;
+}
+
+/* Bottom Navbar Transition */
+.bottom-navbar {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0; /* Initial state */
+  transform: translateY(20px); /* Initial state: slight slide-up */
+}
+
+.bottom-navbar.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* No slide */
+}

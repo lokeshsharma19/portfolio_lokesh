@@ -1,5 +1,3 @@
-import React from "react";
-
 const AboutMe = () => {
   return (
     <div className="h-2/3 py-14 px-24 flex flex-col items-center bg-gray-50">
@@ -13,12 +11,12 @@ const AboutMe = () => {
           </p>
           <ul className="list-disc ml-10 space-y-4 text-lg">
             <li>
-              I'm a passionate, self-driven developer who specializes in
+              {`I'm a passionate, self-driven developer who specializes in
               full-stack development. My journey began 2 years ago with Data
               Structures and Algorithms (C++), which laid a strong foundation
               for my growth as a developer. I quickly transitioned into web
               development, from basics to advanced frontend frameworks like
-              React.js and Next.js.
+              React.js and Next.js.`}
             </li>
             <li>
               To understand the full spectrum of web development, I expanded my
@@ -31,8 +29,8 @@ const AboutMe = () => {
               , and much more.
             </li>
             <li>
-              I'm committed to building in public, sharing my progress and
-              insights on{" "}
+              {`I'm committed to building in public, sharing my progress and
+              insights on `}
               <a
                 className="underline font-medium"
                 href="https://x.com/lokeshshrma19"
@@ -78,8 +76,8 @@ const AboutMe = () => {
               <li>Efficient Problem Solver</li>
             </ul>
             <p className="mt-3">
-              One last thing, I'm available for freelance work and internships,
-              so feel free to reach out and say hello! I promise I don't bite 😉
+              {`One last thing, I'm available for freelance work and internships,
+              so feel free to reach out and say hello! I promise I don't bite 😉`}
             </p>
           </div>
         </div>

@@ -1,26 +1,95 @@
-import React from "react";
-import profilePic from "./profile-pic.png";
+import { useEffect, useState } from "react";
+import profilePic from "../assets/profile-pic.png";
 import PlaceIcon from "@mui/icons-material/Place";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { motion, AnimatePresence } from "framer-motion";
+
+const roles = [
+  "Lokesh",
+  "Frontend Developer",
+  "Backend Developer",
+  "Full Stack Developer",
+];
 
 const Intro = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="px-24 flex flex-wrap-reverse justify-center h-2/3 py-16">
+    <div
+      id="intro"
+      className="lg:px-24 px-4 flex flex-wrap-reverse justify-center h-2/3 py-16">
       <div className="content lg:w-1/2 flex flex-col justify-between">
         <div className="">
-          <p className=" text-gray-900 text-6xl py-8">Hi, I'm Lokesh 👋</p>
-          <p>
-            I'm a passionate full-stack developer specializing in React and
-            Node.js. With over 2 years of experience in this field, I've
-            mastered the art of creating fast, visually appealing, and
-            responsive web applications. I take pride in my ability to deliver
-            projects that are not only efficient and scalable but also adhere to
-            best practices in code segregation. My focus on writing clean,
-            readable code ensures that every project I work on is built for
-            maintainability and future growth.
+          <p className="text-gray-900 text-2xl lg:text-5xl py-8">
+            {`Hi 👋, I'm `}
+            <span className="relative h-11 inline-block whitespace-nowrap">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roles[index]}
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 20, opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute">
+                  [ {roles[index]} ]
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </p>
+          <ul className="list-none space-y-3 text-gray-700">
+            <li className="flex items-center gap-3">
+              <span className="text-blue-500 text-lg">✔</span>
+              <span>
+                <strong>Full-stack developer</strong> specializing in{" "}
+                <strong>React</strong> and <strong>Node.js</strong>.
+              </span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-blue-500 text-lg">✔</span>
+              <span>
+                <strong>3+ years of experience</strong> in building web
+                applications.
+              </span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-blue-500 text-lg">✔</span>
+              <span>
+                Skilled in creating{" "}
+                <strong>fast, visually appealing, and responsive</strong> UIs.
+              </span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-blue-500 text-lg">✔</span>
+              <span>
+                Focused on <strong>efficient, scalable</strong>, and{" "}
+                <strong>best-practice-driven</strong> development.
+              </span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-blue-500 text-lg">✔</span>
+              <span>
+                Strong emphasis on <strong>code segregation</strong> for
+                maintainability.
+              </span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-blue-500 text-lg">✔</span>
+              <span>
+                Writes <strong>clean, readable code</strong> to ensure future
+                growth and easy collaboration.
+              </span>
+            </li>
+          </ul>
         </div>
         <div className=" mt-4">
           <div className="flex items-center">

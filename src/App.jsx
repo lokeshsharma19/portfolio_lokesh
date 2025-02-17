@@ -1,20 +1,31 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Intro from "./components/Intro";
-import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Work from "./components/Work";
+import BottomNavbar from "./components/BottomNavbar";
+import { useState } from "react";
+import Cursor from "./ui/Cursor";
+import Footer from "./components/Footer";
 
 function App() {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isHovering, setIsHovering] = useState({
+    isProjectCard: false,
+    link: "",
+  });
+
   return (
-    <div className=" text-gray-600 w-full">
-      <Navbar />
+    <div className="text-gray-600 w-full h-full">
+      <Navbar setIsNavbarVisible={setIsNavbarVisible} />
       <Intro />
-      <AboutMe />
       <Skills />
       <Experience />
-      <Work />
+      <Work setIsHovering={setIsHovering} />
+      <BottomNavbar isNavbarVisible={isNavbarVisible} />
+      <Cursor isHovering={isHovering} />
+      <Footer setIsNavbarVisible={setIsNavbarVisible} />
     </div>
   );
 }
