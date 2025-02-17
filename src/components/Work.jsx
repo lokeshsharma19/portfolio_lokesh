@@ -4,7 +4,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./work.css";
+import "./Work.css";
 
 import dgame1 from "../assets/projectsImage/dgame1.png";
 import dgame2 from "../assets/projectsImage/dgame2.png";
